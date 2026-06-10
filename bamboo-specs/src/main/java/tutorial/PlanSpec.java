@@ -12,6 +12,7 @@ import com.atlassian.bamboo.specs.api.builders.permission.PermissionType;
 import com.atlassian.bamboo.specs.api.builders.permission.PlanPermissions;
 import com.atlassian.bamboo.specs.builders.task.CheckoutItem;
 import com.atlassian.bamboo.specs.builders.task.VcsCheckoutTask;
+import com.atlassian.bamboo.specs.builders.trigger.RemoteTrigger;
 import com.atlassian.bamboo.specs.util.BambooServer;
 
 @BambooSpec
@@ -35,8 +36,10 @@ public class PlanSpec {
                 );
 
         return new Plan(project(), "TESTING", "TESTING")
-                .description("Plan created from Bamboo Java Specs - GitHub repo v5")
+                .description("Plan created from Bamboo Java Specs - GitHub repo v3")
                 .linkedRepositories("GHB")
+                .triggers(new RemoteTrigger()
+                        .description("Remote trigger from GitHub"))
                 .stages(stage1);
     }
 
