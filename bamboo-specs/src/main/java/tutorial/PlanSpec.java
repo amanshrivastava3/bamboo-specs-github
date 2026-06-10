@@ -36,7 +36,7 @@ public class PlanSpec {
 
         return new Plan(project(), "TESTING", "TESTING")
                 .description("Plan created from Bamboo Java Specs - GitHub repo")
-                .linkedRepositories("repo7")
+                .linkedRepositories("GHB")
                 .stages(stage1);
     }
 
