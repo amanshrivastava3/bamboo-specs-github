@@ -30,14 +30,14 @@ public class PlanSpec {
                 .jobs(new Job("Job 1", new BambooKey("JOB1"))
                         .tasks(
                                 new VcsCheckoutTask()
-                                        .description("Checkout Default Repository")
-                                        .checkoutItems(new CheckoutItem().defaultRepository())
+                                        .description("Checkout bitbucket-test-repo")
+                                        .checkoutItems(new CheckoutItem().repository("bitbucket-test-repo"))
                         )
                 );
 
         return new Plan(project(), "TESTING", "TESTING")
-                .description("Plan created from Bamboo Java Specs - GitHub repo v39")
-                .linkedRepositories("GHB")
+                .description("Plan created from Bamboo Java Specs - GitHub repo v3")
+                .linkedRepositories("GHB", "bitbucket-test-repo")
                 .triggers(new GitHubTrigger())
                 .stages(stage1);
     }
