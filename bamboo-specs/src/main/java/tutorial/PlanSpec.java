@@ -36,7 +36,7 @@ public class PlanSpec {
                 );
 
         return new Plan(project(), "TESTING", "TESTING")
-                .description("Plan created from Bamboo Java Specs - GitHub repo v30")
+                .description("Plan created from Bamboo Java Specs - GitHub repo v39")
                 .linkedRepositories("GHB")
                 .triggers(new GitHubTrigger())
                 .stages(stage1);
