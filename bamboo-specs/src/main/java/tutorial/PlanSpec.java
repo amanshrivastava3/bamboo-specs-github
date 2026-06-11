@@ -11,7 +11,6 @@ import com.atlassian.bamboo.specs.api.builders.permission.Permissions;
 import com.atlassian.bamboo.specs.api.builders.permission.PermissionType;
 import com.atlassian.bamboo.specs.api.builders.permission.PlanPermissions;
 import com.atlassian.bamboo.specs.api.builders.repository.VcsRepositoryIdentifier;
-import com.atlassian.bamboo.specs.builders.repository.VcsRepositoryIdentifierImpl;
 import com.atlassian.bamboo.specs.builders.task.CheckoutItem;
 import com.atlassian.bamboo.specs.builders.task.VcsCheckoutTask;
 import com.atlassian.bamboo.specs.builders.trigger.RepositoryPollingTrigger;
@@ -46,7 +45,7 @@ public class PlanSpec {
                 .triggers(new RepositoryPollingTrigger()
                         .description("Poll every 1 minute")
                         .pollEvery(1, java.util.concurrent.TimeUnit.MINUTES)
-                        .selectedTriggeringRepositories(new VcsRepositoryIdentifierImpl("bamboo-specs-github")))
+                        .selectedTriggeringRepositories(new VcsRepositoryIdentifier("bamboo-specs-github")))
                 .stages(stage1);
     }
 
