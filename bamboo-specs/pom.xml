@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <artifactId>bamboo-specs-github</artifactId>
+    <artifactId>bamboo-specs-git</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
