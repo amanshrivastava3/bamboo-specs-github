@@ -13,7 +13,6 @@ import com.atlassian.bamboo.specs.api.builders.permission.PlanPermissions;
 import com.atlassian.bamboo.specs.builders.task.CheckoutItem;
 import com.atlassian.bamboo.specs.builders.task.VcsCheckoutTask;
 import com.atlassian.bamboo.specs.builders.trigger.GitHubTrigger;
-import com.atlassian.bamboo.specs.builders.trigger.RepositoryPollingTrigger;
 import com.atlassian.bamboo.specs.util.BambooServer;
 
 @BambooSpec
@@ -39,12 +38,7 @@ public class PlanSpec {
         return new Plan(project(), "TESTING", "TESTING")
                 .description("Plan created from Bamboo Java Specs - GitHub repo v3")
                 .linkedRepositories("bitbucket-test-repo")
-                .triggers(
-                        new GitHubTrigger(),
-                        new RepositoryPollingTrigger()
-                                .description("Poll every 1 minute")
-                                .pollEvery(1, java.util.concurrent.TimeUnit.MINUTES)
-                )
+                .triggers(new GitHubTrigger())
                 .stages(stage1);
     }
 
