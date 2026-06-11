@@ -12,10 +12,9 @@ import com.atlassian.bamboo.specs.api.builders.permission.PermissionType;
 import com.atlassian.bamboo.specs.api.builders.permission.PlanPermissions;
 import com.atlassian.bamboo.specs.builders.task.CheckoutItem;
 import com.atlassian.bamboo.specs.builders.task.VcsCheckoutTask;
+import com.atlassian.bamboo.specs.builders.trigger.GitHubTrigger;
 import com.atlassian.bamboo.specs.builders.trigger.RepositoryPollingTrigger;
 import com.atlassian.bamboo.specs.util.BambooServer;
-
-import java.time.Duration;
 
 @BambooSpec
 public class PlanSpec {
@@ -32,18 +31,20 @@ public class PlanSpec {
                 .jobs(new Job("Job 1", new BambooKey("JOB1"))
                         .tasks(
                                 new VcsCheckoutTask()
-                                        .description("Checkout Default Repository")
-                                        .checkoutItems(new CheckoutItem().defaultRepository())
+                                        .description("Checkout bitbucket-test-repo")
+                                        .checkoutItems(new CheckoutItem().repository("bitbucket-test-repo"))
                         )
                 );
 
         return new Plan(project(), "TESTING", "TESTING")
-                .description("Plan created from Bamboo Java Specs - Git repo with polling")
+                .description("Plan created from Bamboo Java Specs - GitHub repo v3")
                 .linkedRepositories("bitbucket-test-repo")
-                // Polling trigger every 1 minute
-                .triggers(new RepositoryPollingTrigger()
-                        .description("Poll every 1 minute")
-                        .pollEvery(1, java.util.concurrent.TimeUnit.MINUTES))
+                .triggers(
+                        new GitHubTrigger(),
+                        new RepositoryPollingTrigger()
+                                .description("Poll every 1 minute")
+                                .pollEvery(1, java.util.concurrent.TimeUnit.MINUTES)
+                )
                 .stages(stage1);
     }
 
