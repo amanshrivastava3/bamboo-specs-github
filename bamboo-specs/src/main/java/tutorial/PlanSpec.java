@@ -39,7 +39,7 @@ public class PlanSpec {
                 );
 
         return new Plan(project(), "TESTING", "TESTING")
-                .description("Plan created from Bamboo Java Specs - Git repo with pollingtesting1234amananeliya")
+                .description("Plan created from Bamboo Java Specs - Git repo with pollingtestingshanky")
                 .linkedRepositories("bitbucket-test-repo", "bamboo-specs-github")
                 // Polling trigger every 1 minute on bamboo-specs-github
                 .triggers(new RepositoryPollingTrigger()
