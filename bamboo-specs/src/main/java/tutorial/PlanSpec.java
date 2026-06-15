@@ -44,7 +44,7 @@ public class PlanSpec {
                 // Polling trigger every 1 minute on bamboo-specs-github
                 .triggers(new RepositoryPollingTrigger()
                         .description("Poll every 1 minute")
-                        .pollEvery(1, java.util.concurrent.TimeUnit.MINUTES)
+                        .pollEvery(5, java.util.concurrent.TimeUnit.MINUTES)
                         .selectedTriggeringRepositories(new VcsRepositoryIdentifier("bamboo-specs-github")))
                 .stages(stage1);
     }
